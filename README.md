@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+当然可以！下面是一个适合你的项目（含 API 测试和说明）的**简明中文 README**，替换掉 CRA 的默认说明。
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# React 前端项目说明
 
-In the project directory, you can run:
+本前端项目基于 [Create React App](https://github.com/facebook/create-react-app) 初始化，主要用于对接后端 API，实现 Markdown 内容的自动获取和展示。
 
-### `npm start`
+## 快速开始
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. **安装依赖**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+   ```bash
+   npm install
+   ```
 
-### `npm test`
+2. **启动开发服务器**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   npm start
+   ```
 
-### `npm run build`
+   启动后自动打开浏览器，访问 [http://localhost:3000](http://localhost:3000)。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 功能说明
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 支持用户输入 API 地址，通过按钮一键获取后端分析结果/Markdown 内容。
+- 适配 FastAPI 等后端，要求后端返回格式为：
+  
+  ```json
+  {
+    "text": "这里是 Markdown 正文内容"
+  }
+  ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 获取的内容会自动填写到编辑器或展示区域。
 
-### `npm run eject`
+## 常见用法
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. 启动后端（如 FastAPI），确保接口可用，参考后端目录的 README。
+2. 在页面“API 地址”输入框中输入后端接口地址（如 `http://localhost:8000/api/test-md`）。
+3. 点击“Fetch Analysis”按钮，页面会自动展示获取到的 Markdown 内容。
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 跨域（CORS）提醒
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+如遇到 `Failed to fetch data from API` 或浏览器 CORS 报错，请确保后端已正确开启跨域支持。
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 其他命令
 
-## Learn More
+- `npm test`：启动测试
+- `npm run build`：构建生产版本
+- `npm run eject`：弹出配置（不推荐日常使用）
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 相关文档
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Create React App 官方文档](https://facebook.github.io/create-react-app/docs/getting-started)
+- [React 官方文档](https://reactjs.org/)
+
+---
+
+如需修改 API 对接、样式或功能，请参考 `src/components/ApiIntegration.tsx` 和 `src/services/api.ts` 文件。  
