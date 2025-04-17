@@ -1,7 +1,3 @@
-当然可以！下面是一个适合你的项目（含 API 测试和说明）的**简明中文 README**，替换掉 CRA 的默认说明。
-
----
-
 # React 前端项目说明
 
 本前端项目基于 [Create React App](https://github.com/facebook/create-react-app) 初始化，主要用于对接后端 API，实现 Markdown 内容的自动获取和展示。
